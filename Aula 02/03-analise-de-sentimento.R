@@ -53,10 +53,12 @@ mod <- c("CHEVROLET CELTA",
          "HYUNDAI HB",
          "RENAULT SANDERO",
          "VOLKSWAGEN FOX",
-         "VOLKSWAGEN GOL")[4]
+         "VOLKSWAGEN GOL")[4] #pegando o quarto elemento
+
 texto <- tt %>%
     filter(str_detect(product, mod)) %>%
     select(id, general)
+
 texto
 
 
@@ -80,6 +82,7 @@ stopwords(kind = "pt")
 head(texto$general, n = 1) %>%
     str_wrap(72) %>%
     cat("\n")
+
 head(texto$general, n = 1) %>%
     removeWords(words = stopwords(kind = "pt")) %>%
     str_wrap(72) %>%

@@ -1,9 +1,12 @@
-## ---- message = FALSE---------------------------------------------------------
+## Carregamento de librarys -------
+# message = FALSE
 library(tm)
+library(tidyverse)
 ls("package:tm")
 
 
-## -----------------------------------------------------------------------------
+## Exemplo básico --------
+
 # Uma string longa.
 x <- "
 Minha terra tem palmeiras,
@@ -23,43 +26,44 @@ tm::removePunctuation(x) |> cat()
 
 # Remove espações em branco extras.
 tm::stripWhitespace(x) |>
-    strwrap(width = 60) |> cat(sep = "\n")
+    strwrap(width = 60) |> 
+    cat(sep = "\n")
 
 # Remove os números.
-tm::removeNumbers(x) |> cat()
+tm::removeNumbers(x) |> 
+  cat()
 
 # Remove stop words.
-tm::removeWords(x, words = c("tem", "o", "a", "mais", "onde")) |> cat()
+tm::removeWords(x, words = c("tem", "o", "a", "mais", "onde")) |> 
+  cat()
 
-# Poda.
+# Poda (sufixo ou prefixo).
 tm::stemDocument(x, language = "portuguese") |>
     strwrap(width = 60) |> cat(sep = "\n")
 
 
-## ---- message = FALSE---------------------------------------------------------
+## Exemplo carregando dados -----
 library(tm)
 library(tidyverse)
 library(tidytext)
 
 # Carregar uma lista de listas chamada `ufpr` com notícias envolvendo a
 # UFPR entre 2016-09-05 até 2017-03-31.
-load(file = "ufpr-news.RData")
+load(file = "Aula 01/ufpr-news.RData")
 
 class(ufpr)      # Tipo de objeto.
 length(ufpr)     # Tamanho da lista.
 names(ufpr[[1]]) # Conteúdo.
 
 
-## -----------------------------------------------------------------------------
-#-----------------------------------------------------------------------
-# Criando um Corpus.
+## --- Criando um Corpus. --------
 
 # Pegar as primeiras notícias.
 tb <- ufpr[1:200] %>%
     map(tibble) %>%
     flatten_df()
 
-# Cria um corpus.
+# Cria um corpus (conjunto de documentos)
 cps <- VCorpus(VectorSource(x = tb$str_titulo),
                readerControl = list(language = "pt",
                                     load = TRUE))
@@ -80,19 +84,28 @@ content(cps[[1]])
 meta(cps[[1]])
 
 
-## -----------------------------------------------------------------------------
+## --- Uniformização dos dados -----
+# 1) uniformizar caixa
+# 2) remover puntuação
+# 3) remover números
+# 4) remover espaço em branco
+
 # Pode encadear tudo com pipe se quiser.
-cps <- tm_map(cps, FUN = content_transformer(tolower))
-cps <- tm_map(cps, FUN = removePunctuation)
-cps <- tm_map(cps, FUN = removeNumbers)
-cps <- tm_map(cps, FUN = stripWhitespace)
+# cps <- tm_map(cps, FUN = content_transformer(tolower))
+# cps <- tm_map(cps, FUN = removePunctuation)
+# cps <- tm_map(cps, FUN = removeNumbers)
+# cps <- tm_map(cps, FUN = stripWhitespace)
+
+cps <- cps %>% 
+  tm_map(content_transformer(tolower)) %>% 
+  tm_map(removePunctuation) %>% 
+  tm_map(removeNumbers) %>% 
+  tm_map(stripWhitespace)
 
 # Resultado.
 sapply(cps[1:4], content)
 
-
-## -----------------------------------------------------------------------------
-# Remove as stopwords.
+## --- Remove as stopwords ----
 stopwords("portuguese")
 
 cps <- tm_map(cps,
@@ -103,7 +116,7 @@ cps <- tm_map(cps,
 sapply(cps[1:4], content)
 
 
-## -----------------------------------------------------------------------------
+## --- Poda ----
 cps2 <- tm_map(cps,
                FUN = stemDocument,
                language = "portuguese")
@@ -112,29 +125,33 @@ cps2 <- tm_map(cps,
 sapply(cps2[1:4], content)
 
 
-## -----------------------------------------------------------------------------
+## --- Remoção de acentuação -----
 acen <- function(x) iconv(x, to = "ASCII//TRANSLIT")
 cps2 <- tm_map(cps2, FUN = content_transformer(acen))
 sapply(cps2[1:4], content)
 
 
-## -----------------------------------------------------------------------------
+## Inserindo metadados ----
 # Com "indexed" (default) indica que ficara como tabela mas mantendo
 # indexação com os elementos. É melhor para desempenho.
+
+# Vamos criar metadados 'cidade' e 'data de publicação"
+
+#data de publicação
 meta(cps2, tag = "ts", type = "indexed") <- tb$ts_publicacao
+# cidade de publicação
 meta(cps2, tag = "cidade") <- tb$str_cidade
+# verificação
 meta(cps2[[2]])
 head(meta(cps2), n = 2)
 
 
-## -----------------------------------------------------------------------------
 # Com "local" indica que ficará dentro de cada elemento.
 meta(cps2, tag = "ts", type = "local") <- tb$ts_publicacao
 meta(cps2[[2]])
 
 
-## -----------------------------------------------------------------------------
-# Matriz de documentos e termos.
+## Matriz de documentos e termos. -------
 dtm <- DocumentTermMatrix(cps2) # Documentos nas linhas.
 tdm <- TermDocumentMatrix(cps2) # Termos nas linhas.
 
@@ -147,20 +164,17 @@ dtm
 # dim(tdm)
 c(nTerms(tdm), nDocs(tdm))
 
-
-## -----------------------------------------------------------------------------
 # Classe e métodos.
 class(dtm)
 # methods(class = "DocumentTermMatrix")
 methods(class = "TermDocumentMatrix")
 
-
-## -----------------------------------------------------------------------------
 # Algumas linhas e colunas da matriz.
+inspect(dtm)
 inspect(tdm)
 
 
-## -----------------------------------------------------------------------------
+## ----------
 u <- VCorpus(VectorSource(c("O céu é azul",
                             "A mata é verde",
                             "Mas a rosa é vermelha")))
@@ -173,7 +187,6 @@ cells <- prod(dim(d))
 100 * (1 - (non_zero/cells))
 
 
-## ---- eval = FALSE, out.width = "100%", fig.height = 10-----------------------
 ## library(lattice)
 ## 
 ## # Converte para matriz ordinária.

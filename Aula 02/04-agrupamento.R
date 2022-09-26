@@ -8,10 +8,16 @@ library(Matrix)
 
 
 ## -----------------------------------------------------------------------------
-cps <- VCorpus(tm::ZipSource("respostas-prova.zip", 
+
+# Sys.setlocale("LC_ALL","en_US.UTF-8")
+
+cps <- VCorpus(tm::ZipSource("Aula 02/respostas-prova.zip", 
                              mode = "text",
                              pattern = "*.txt"),
-               readerControl = list(language = "portuguese"))
+               readerControl = list(language = "portuguese"
+                                    #,encoding = "utf-8"
+                                    ))
+
 names(cps) <- sub(".*(.{3})\\.txt", "\\1", names(cps))
 cps
 
@@ -33,6 +39,7 @@ cps <- tm_map(cps, FUN = content_transformer(trimws))
 my_tokenizer <- function(x) {
     RWeka::NGramTokenizer(x, control = Weka_control(min = 2, max = 2))
 }
+
 tt <- Token_Tokenizer(my_tokenizer)
 tt("Minha terra tem palmeiras onde canta o sabiá.")
 
