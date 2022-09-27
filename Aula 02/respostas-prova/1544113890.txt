@@ -1,0 +1,23 @@
+
+
+K-Médias: é um algoritmo de agrupamento iterativo, que pode ser considerado uma heurística de agrupamento não hierárquico. Selecionamos um número de grupos, e classificamos as observações em um determinado grupo (clusters). Usamos como função de classificação a média entre a observação e o centro do grupo (centróide), e minimizamos a soma de todas as distâncias euclidianas entre cada dado e o centróide.  Cada observação pertence ao grupo mais próximo da média.
+
+Agrupamento Hierárquico: são algoritmos de agrupamento, que produzem uma hierarquia de acordo com a proximidade entre as observações. Há duas versões: a aglomerativa (bottom-up), que trabalha criando conjuntos a partir de observações isoladas, e a devisiva (top-dow), que começa com um grande conjunto e vai quebrando em partes até chegar as observações isoladas.
+
+DBSCAN: é um método de agrupamento não paramétrico baseado em densidade, é um método significativamente efetivo para identificar grupos de formato arbitrário e de diferentes tamanhos. Ele identifica e separa ruídos dos dados, detecta “grupos naturais” e seus arranjos dentro do espaço. O método só usa um parâmetro de entrada, e a ideia do método é que, para cada ponto de um grupo, a vizinhança para dado raio contém no mínimo certo número de pontos, ou seja, a densidade na vizinhança tem que exceder um limiar.
+
+ 
+
+(1.) Deseja-se fazer o agrupamento em um número de grupos conhecidos.
+
+      K-Médias: neste caso é melhor, pois como temos os grupos conhecidos, pois desta forma conseguimos agrupar as observações segundo o centróide do grupo. Caso não conheçamos os grupos, faríamos a mesma coisa testando a quantidade de grupo, mas não com a parcialidade de saber se estamos acertando na quantidade de grupos. Para descobrir a quantidade de grupos podemos usar o critério de Calinski.
+
+(2.) Deseja-se fazer uma descrição taxonômica da relação entre os objetos.
+
+      Agrupamento Hierárquico: neste caso se encaixa melhor, pois numa descrição taxonômica fazemos uma hierarquização de um grupo, como por exemplo, na biologia a taxonomia de uma espécie de vaca. É exatamente isso que temos no agrupamento hierárquico.
+
+(3.) Deseja-se identificar outliers ou observações ruidosas.
+
+      DBSCAN: é melhor, pois como vimos na explicação acima, o método identifica formato arbitrário de grupos e de diferentes tamanhos. Logo, com esse método conseguimos identificar outliers ou observações ruidosas.
+
+

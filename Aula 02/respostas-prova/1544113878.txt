@@ -1,0 +1,23 @@
+
+
+- K-médias:
+
+Primeiro passo, atribuir classes (k = número de classes), depois calcular centróides, em seguida reclassificar as classes a partir do centróide mais próximo de cada observação, recalcular as centróides, até se estabilizar. No k-means precisa-se determinar o número de classes antes de calcular. O fato de pré-determinar o número de grupos pode trazer dificuldades especialmente quando você não conhece nada dos dados, você pode estar atribuindo algo inapropriado dependendo da situação.
+
+- Agrupamento hierárquico
+
+Não precisa-se determinar quantos agrupamentos deseja-se. Pode ser divisivo ou aglomerativo. A ideia é iniciar de uma quantidade grande de classes, cada ponto sendo seu cluster, então ir agrupando ele com o ponto ou cluster mais próximo a ele, até restar apenas um grupo. A vantagem dele é que eu posso cortar o agrupamento com uma distância determinada, decidindo assim o numero de grupos depois de todos os agrupamentos. 
+
+- DBSCAN 
+
+Os métodos anteriores são adequados para encontrar agrupamentos esféricos, em regiões bem definidas, e ausentes de outliers. O DBSCAN se baseia em densidade, clusters são regiões densas, separadas por regiões de menor densidade, desta maneira encontra os grupos e informações diferentes das demais (Outliers). Este método não requer pré-definição da quantidade de clusters. 
+
+    Deseja-se fazer o agrupamento em um número de grupos conhecido. K-médias
+    Deseja-se fazer uma descrição taxonômica da relação entre os objetos. Agrupamento hierárquico
+    Deseja-se identificar outliers ou observações ruidosas. DBSCAN
+
+Justificativas:
+
+Para 1. no método de k-médias precisamos definir de inicio a quantidade de grupos, e neste caso o número de grupos já é conhecido. Para 2. conseguimos fazer a descrição taxonômica da relação entre objetos porque conseguimos analisar desde onde cada observação é seu grupo até onde todas são do mesmo grupo, assim conseguimos analisar o agrupamento passo a passo e verificar toda a diversidade dos agrupamentos "do meio". Para 3., como deseja-se identificar outliers ou observações ruidosas o método DBSCAN é o mais apropriados dos 3 para este tipo de analise, ele talvez possa exigir um conhecimento prévio. Mas, para este tipo de identificação é o mais adequado já que analisa através de densidade, e informações que não sejam da fronteira ou informações com vizinhos (centrais), podem ser consideradas observações ruidosas ou outliers.
+
+

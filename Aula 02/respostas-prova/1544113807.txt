@@ -1,0 +1,13 @@
+
+
+i) K-médias agrupa os indivíduos de acordo com os K (valor que deve ser "estimado" como um hiper parâmetro) vizinhos mais próximos, o peso de cada vizinho pode variar com sua distância. Algorítimo supervisionado e com o objetivo de classificação de novos dados.
+
+ii) Agrupamento hierárquico é uma metodologia não supervisionada que cria grupos de acordo com a distância (semelhança) das variáveis do banco de dados. O algorítimo pode classificar cada indivíduo como um grupo, até todos os indivíduos como um grupo só (O número de grupos é escolhido pelo usuário). Observações discrepantes serão classificadas, rapidamente, como um grupo isolado.
+
+iii) DBSCAN é um algorítimo que classifica de acordo com a densidade da região das variáveis, parecido com o k-means.
+
+ 
+
+Considerando os aspectos do problema suposto, o algorítimo de Agrupamento hierárquico se torna a melhor opção. As problematizações 1. e 2. são características presentes apenas no agrupamento hierárquico. O objetivo 3. pode ser utilizado tanto o agrupamento hierárquico quanto o DBSCAN.
+
+

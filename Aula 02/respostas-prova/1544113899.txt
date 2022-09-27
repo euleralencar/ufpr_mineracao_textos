@@ -1,0 +1,30 @@
+
+
+K- médias
+Escolher k objetos aleatoriamente, que serão os centroídes de cada grupo, os demais objetos serão associados ao centroíde mais próximo.
+A cada passo os centróides são recalculados dentre os objetos do seu grupo e os objetos são classificados conforme o centroide mais próximo.
+Sendo assim, o k-médias é o método mais apropriado para realizar um agrupamento em um número de grupos conhecido.
+
+Agrupamento hierárquico
+Os grupos de objetos estão organizados como em uma árvore. Existem duas classes de algoritmos, os
+- Agrupamento aglomerativo: Cada item de dados é considerado como um grupo individual,e grupos são recursivamente fundidos atá produzir um bom
+agrupamento final.
+- Agrupamento por divisão: Inicialmente todos os dados são considerados pertencentes a um único grupo e, em seguida é recursivamente dividido para produzir um bom agrupamento final.
+Sendo o melhor método para fazer uma descrição taxonômica da relação entre os objetos, pois irá separar os objetos por características sem a necessidade de conhecer o número prévio de grupos.
+
+DBSCAN
+O método DBSCAN encontra clusters verificando a vizinhança epsilon de cada ponto
+na base de dados, começando por um objeto arbitrário p. Se p é um ponto central, um
+novo cluster com p como um centro é criado. Se p é um ponto
+de fronteira, nenhum ponto é alcançável por densidade a partir de p e DBSCAN visita o
+próximo ponto na base. O método DBSCAN, então, iterativamente coleta objetos
+alcançáveis por densidade diretamente de pontos centrais, que pode envolver a união de
+alguns clusters alcançáveis por densidade. O processo termina quando nenhum novo
+ponto pode ser adicionado a qualquer cluster. Para o algoritmo DBSCAN assim
+definido, quaisquer dois pontos centrais com distância menor ou igual a epsilon são colocados
+no mesmo cluster. Qualquer ponto de borda que está perto de um ponto central é
+colocado no mesmo cluster do ponto central. Pontos que não são diretamente atingíveis
+por algum ponto central são classificados como ruído.
+Sendo assim, um ótimo método para identificar outliers ou observações ruidosas.
+
+

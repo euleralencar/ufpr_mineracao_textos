@@ -1,0 +1,18 @@
+
+
+i) K-médias:Algoritmo de clusterização, seu objetivo é dividir os dados segundo suas médias comuns.A média comum classificaria o conjunto de dados em um cluster específio.
+É necessário definir o número de cluster antes do algoritmo rodar.
+
+ii) Agrupamento-Hierarquico:Algoritmo de clusterização,com algumas diferenças, exitem dois mecanismos:
+Top-down: Aqui os pontos começam em um único cluster inicial, que vão se subdividindo ao decorrer do tempo.
+Bottom-up: Ao decorrer do algoritmo os clusters vão se juntando conforme a distribuição dos pontos, formando classes e subclasses. O AH pode utilizar o k-médias para seu mecanismo de divisão.
+
+iii) DBSCAN : Algoritmo de clusterização, que se baseia na densidade dos dados. Ele divide os cluster conforme a sua distribuição, ou seja, onde os pontos estiverem mais densos ele cria o cluster. Os potos entre
+as massas de densidade (clusters), ele considera com outlier. Diferente do k-média, o DBSCAN não exige um input da quantidade de cluster desejado.
+
+Para as situações:
+1) K-médias, pois é necessário o input inicial da quantidade de clusters.
+2) Agrupamento-Hierarquico, pois se trata de uma descrição taxonômica, então o AH pode ser mais indicado.
+3) DBSCAN, devido a sua capacidade robusta de indentificação de outliers.
+
+

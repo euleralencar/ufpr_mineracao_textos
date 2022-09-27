@@ -1,0 +1,20 @@
+
+
+Análise de agrupamento (Clustering): Nome dado para o grupo de técnicas computacionais cujo propósito consiste em separar objetos em grupos, baseando-se nas características que estes objetos possuem.
+1) k-means:
+
+O K-Means é uma técnica de agrupamento não hierárquico que busca minimizar a distância dos elementos a um conjunto de k centros dado por χ={x1,x2,...,xk} de forma iterativa. O algoritmo K-Means atribui cada um dos n exemplos de dados a um dos k clusters, onde k é um número que foi determinado previamente. Em resumo, o algoritmo opera da seguinte forma: 1) O algoritmo atribui exemplos a um conjunto inicial de k clusters. 2) Atualiza as atribuições ajustando os limites de cluster de acordo com os exemplos que estão no cluster.
+
+- Contexto: 1. Deseja-se fazer o agrupamento em um número de grupos conhecido.
+2) Agrupamento Hierárquico:
+
+Os algoritmos hierárquicos criam uma hierarquia de relacionamentos entre os elementos. Isso é feito iterativamente mesclando clusters menores em um cluster maior, ou dividindo um cluster maior em clusters menores. Essa hierarquia produzida pode ser representada pelo dendograma. Existem duas versões: a aglomerativa, que opera criando conjuntos a partir de elementos isolados, e a divisiva, que começa com um grande conjunto e vai quebrando-o em partes até chegar a elementos isolados.
+
+- Contexto: 2. Deseja-se fazer uma descrição taxonômica da relação entre os objetos.
+3) DBSCAN:
+
+Em muitas situações, os dados da vida real podem conter: i) clusters de formato arbitrário, como clusters de forma oval, linear e “S”); ii) muitos outliers e ruído. Nessas situações, os métodos de agrupamento k-means e agrupamento hierárquico têm dificuldades, já que são severamente afetados pela presença de outliers nos dados. O algoritmo DBSCAN, método baseado em densidade, tem como objetivo corrigir esse problema e identificar clusters de qualquer formato no conjunto de dados contendo ruído e outliers.
+
+- Contexto: 3. Deseja-se identificar outliers ou observações ruidosas.
+
+

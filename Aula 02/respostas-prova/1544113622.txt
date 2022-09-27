@@ -1,0 +1,20 @@
+
+
+K-means é um algoritmo de clusterização, que tem por objetivo dividir as observações de acordo com médias comuns a pedaços desses pontos. Essa média comum seria o que classificaria o conjunto de dados em um cluster específico. O k-means exige que seja inputado um número de grupos.
+
+O agrupamento hierarquico também é um algoritm de clusterização, mas que funciona de forma diferente. Existem essencialmente dois mecanismos de clusterização por esse método:
+
+- Bottom-up: As observações são agrupadas em clusters, e os próprios clusters vão se juntando em agrupamentos maiores ao longo do algoritmo, formando classes e subclasses;
+- Top-down: Todas as observações se iniciam em um único grupo, que vai se subdividindo com o tempo.
+
+Como mecanismo de divisão, o agrupamento hierárquico pode se utilizar do k-means.
+
+DBSCAN é um algoritmo de clusterização baseado na densidade dos pontos. Conforme os pontos estiverem mais agrupados, o cluster vai se formando na região. Todos os pontos afastados das massas são considerados outliers. O DBSCAN não exige um primeiro input de quantidade de clusters.
+
+No primeiro contexto, pode ser mais indicado a utilização do k-means, uma vez que é necessário informar um número de médias para clusterização.
+
+No segundo contexto, devido à estrutura hierárquica exigida pela descrição taxonômica, o algoritmo de agrupamento hierárquico pode ser mais condizente.
+
+No último contexto, como o DBSCAN é capaz de identificar outliers devido ao agrupamento por massa de dados, além de lidar melhor com ruído, ele pode ser mais interessante.
+
+

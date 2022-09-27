@@ -1,0 +1,22 @@
+
+
+Algoritmo indicado para agrupamento em um número de grupos conhecidos.
+- k-médias:
+É um método iterativo que tem como objetivo classificar objetos em um determinado clusters, sendo que o número k de clusters é dito inicialmente.
+O método consiste em escolher aleatoriamente k centróides e minimizar a soma das distância de cada um dos objeto aos k centróides. O objeto é classificado com a classe do centróide mais próximo a ele, garantindo assim que todos os objetos pertençam a uma e única classe. 
+
+ 
+
+Algoritmo indicado para determinar a descrição taxonômica da relação entre os objetos.
+- Agrupamento hierárquico:
+A ideia do algoritmo é construir um dendrograma com folhas que se agrupam até chegar ao tronco,
+ou seja, é construir um conjunto de grupos aninhados organizado como uma árvore hierárquica.
+Esse algoritmo não exige saber previamente o número de clusters e os clusters podem corresponder a taxonomias com significado, por exemplo, em ciências biológicas o reino animal seria o clusters para um conjunto de observações.
+Além disso, a similaridade entre os grupos pode ser definida de várias formas (Ex.:minimo, maximo, média, etc.).
+
+Algoritmo indicado para identificar outliers ou observações ruidosas.
+- DBSCAN
+Define-se previamente o raio R e o número de pontos K a ser considerado dentro desse raio R.
+Para cada um dos pontos, verifica-se o número de pontos dentro de um raio R. Quando o número de pontos dentro do raio R for maior ou igual que o valor de K, esse ponto é considerado ponto núcleo; quando o número é menor que o valor de k mas está na vizinhança de um ponto núcleo, é um ponto fronteira; quando é menor que o valor de k e não está na vizinhança de um ponto núcleo é um ponto ruído, um outlier. Portanto é possível dizer quais os pontos são ruídos ou outliers.
+
+

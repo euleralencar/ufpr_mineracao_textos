@@ -9,30 +9,56 @@ library(Matrix)
 
 ## -----------------------------------------------------------------------------
 
-# Sys.setlocale("LC_ALL","en_US.UTF-8")
 
-cps <- VCorpus(tm::ZipSource("Aula 02/respostas-prova.zip", 
-                             mode = "text",
-                             pattern = "*.txt"),
-               readerControl = list(language = "portuguese"
-                                    #,encoding = "utf-8"
-                                    ))
+cname <- file.path("~/05. Projetos_r/ufpr_mineracao_textos/Aula 02", "respostas-prova")
+cps <- VCorpus(DirSource(cname, 
+                          encoding = "UTF-8"), 
+                readerControl=list(reader=readPlain))
 
 names(cps) <- sub(".*(.{3})\\.txt", "\\1", names(cps))
-cps
-
 inspect(cps[[3]])
+
+
+# # Não funcionou
+# cps <- VCorpus(tm::ZipSource("Aula 02/respostas-prova.zip", 
+#                              mode = "text",
+#                              pattern = "*.txt"),
+#                readerControl = list(language = "portuguese"))
+# 
+# names(cps) <- sub(".*(.{3})\\.txt", "\\1", names(cps))
+# cps
+# 
+# inspect(cps[[3]])
+
+
+# bar <- iconv((cps), to="UTF-8")
+# 
+# inspect(bar[[3]])
+# 
+# iconv(cps, from = "ISO_8859-2", to = "")
+# 
+# inspect(cps[[3]])
 
 
 ## -----------------------------------------------------------------------------
 # Fazendo as operações de limpeza.
 cps <- tm_map(cps, FUN = content_transformer(tolower))
+cps <- tm_map(cps, FUN = removePunctuation)
 cps <- tm_map(cps, FUN = removeNumbers)
 cps <- tm_map(cps, FUN = removeWords, words = stopwords("portuguese"))
 cps <- tm_map(cps, FUN = stripWhitespace)
 cps <- tm_map(cps, FUN = stemDocument, language = "portuguese")
 cps <- tm_map(cps, FUN = content_transformer(trimws))
 
+
+
+
+# Passa para ASCII puro.
+# acen <- function(x) iconv(x, to = "ASCII//TRANSLIT")
+# cps <- tm_map(cps, FUN = content_transformer(acen))
+# sapply(cps[1:4], content)
+
+# inspect(cps[[3]])
 
 ## -----------------------------------------------------------------------------
 # Um tokenizador de bi-gramas.

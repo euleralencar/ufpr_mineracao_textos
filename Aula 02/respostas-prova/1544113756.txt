@@ -1,0 +1,19 @@
+
+
+i) K-médias: é um algoritmo de agrupamento interativo. Tem como função de classificação a distância do objeto ao centro do grupo. Minimiza a somo de todas as distâncias euclidianas entre cada objeto e o seu centroide, segundo o critério dos mínimos quadrados.
+
+O contexto mais apropriado para esse algoritmo é o 1, porque o k-médias classifica objetos num determinado número pré-definido K de grupos, ou seja, antes do algoritmo ser iniciado, te que ser escolhido o número de grupos.
+
+ 
+
+ii) Agrupamento Hierárquico: Existem dois métodos, os Algoritmos Aglomerativos e os Algoritmos Divisivos. São técnicas simples onde os dados são particionados sucessivamente, produzindo uma representação hierárquica dos agrupamentos. É um método que não precisa definir o número de grupos a priori. A análise é feita através de um dendograma, pois é por ele que se pode inferir no número de agrupamentos adequados. Esses métodos requerem uma matriz contendo as métricas de distância entre os agrupamentos em cada estágio do algoritmo.
+
+O contexto mais apropriado para esse algoritmo é o 2, porque a representação hierárquica dos agrupamentos facilita a visualização sobre a formação dos agrupamentos em cada estágio onde ela ocorreu e com que grau de semelhança entre eles.
+
+ 
+
+iii) DBSCAN: A ideia chave desse método é que, para cada ponto de um cluster, a vizinhança para um dado raio contém, no mínimo, certo número de pontos, ou seja, a densidade da vizinhança tem que exceder um limiar. O método encontra clusters verificando a vizinhança epsilon de cada ponto da base de dados, começando por um objeto arbitrário p. Se p é um ponto central, um novo cluster com p é criado. Se p é um ponto de fronteira, nenhum ponto é alcançável por densidade a partir de p e o método visita o próximo ponto na base. O processo termina quando mais nenhum outro ponto pode ser adicionado a algum cluster.
+
+O contexto mais apropriado para esse algoritmo é o 3, porque pontos que não são diretamente atingíveis por algum ponto central são classificados como ruído. E também ele é efetivo para identificar clusters de formata arbitrário e de diferentes tamanhos, identificar e separar ruídos dos dados e detectar clusters “naturais”, sem qualquer informação preliminar sobre os grupos.
+
+

@@ -1,0 +1,16 @@
+
+
+K-Médias : Escolhemos o número de grupos que queremos e depois para cada grupo escolhemos um centro de maneira aletória, classificamos os demais pontos como grupo que tem o centro mais perto desses pontos, daí calculamos o centro desses grupos e re-classificamos os outros pontos da mesma maneira, vamos repitiondo o processo ate os centros não mudarem muito.
+
+Agrupamento hierárquico : Tem dois tipos aglomerativo e devisiva. O aglomerativo (ou Bottom-up) começamos com cada dado sendo um grupo e apartir de uma função que mede a distância entre dois grupos e vamos juntando os grupos a cada iteração. Já o devisiva (ou top-down) começamos com um único grupo e daí vamos dividindo os grupos em menores. Ambos podemos respresentar numa árvore mostrando cada união ou separação feita a cada iteração.
+
+DBSCAN : Começamos com um dado aleatório e vamos juntando os dados em um mesmo grupo que estão numa mesma bola de raio predefinido, para os pontos que estão nessa bola reptimos o processo colocando os outro no mesmo grupo até que não tenha mais pontos não classificados dentro das bolas, daí pegamos outro ponto alatório não classificado e repetimos o processo fazendo outros grupos, até que todos os pontos tenham sido classificados.
+
+
+(1) O melhor é o k-means pois é mais facil, bom não precisamos fazer validação cruzada para achar o número de grupos pois ja sabemos.
+
+(2) São os de Agrupamento Hieráquico ja que podemos associar com um árvore e ver as ligações entre os grupos de iterações diferentes, e assim ter uma idéia melhor porque o algoritimo classificou daquele jeito.
+
+(3) DBSCAN pois se tivermos um grupo com apenas um dado então esse é outlier.
+
+

@@ -1,0 +1,8 @@
+
+
+    O k-médias é úm método de análise de clusters útil quando se deseja definir uma partição inicial e devido à característica de que os elementos podem ser trocados de grupo em cada iteração temos que o k-médias é um algoritmo bastante flexível. Como este algoritmo necessita de partições iniciais para começar, é muito utilizado no caso "1" onde existe um conhecimento prévio a respeito de grupos conhecidos.
+    Para o agrupamento hierárquico, diferente do k-médias, é fornecido um conjunto de vários agrupamentos possíveis e ao longo das iterações do algoritmos os grupos podem se unir. O agrupamento hierárquico é considerado um algoritmo não flexível por não permitir que um elemento faça a migração de um grupo para outro. Devido à essas características o método é útil para se estudar a taxonomia da relação entre os objetos (caso "2").
+    DBSCAN é um método para análise de clusters baseado em densidades não-paramétricas (como a densidade kernel) e é útil para identificar grupos desbalanceados. Como o método avalia os elementos dentro de um determinado raio na vizinhança dos elementos de um grupo ele torna-se robusto à dados atípicos, podendo então identificar outliers ou observações ruidosas (caso "3") com maior facilidade.
+
+
+

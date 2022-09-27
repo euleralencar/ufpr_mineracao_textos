@@ -1,0 +1,25 @@
+
+
+O algoritmo K-médias é um método que classifica as observações num determinado número de grupos pré definidos (K de grupos), os chamados clusters, tendo como função de classificação a distância da observação em relação ao centro do grupo (centróide). Esse algoritmo minimiza a soma de todas as distâncias euclidianas entre cada observação e o seu respectivo centróide, considerando a within-cluster variation. As etapas do algorítimo são:
+
+ 1. Atribui aleatoriamente cada observação a um dos k cluster pré determinado (chute inicial).
+
+ 2. Começa a iteração
+
+   2.1 Para cada cluster calcula o centróide
+
+   2.2 Realoca as observações de forma que elas sejam atribuídas ao cluster mais próximo  (menor distancia euclidiana).
+
+Dependendo do chute inicial, obtém-se diferentes resultados. 
+
+O agrupamento hierárquico é uma abordagem alternativa que não exige determinar o número de agrupamentos a ser realizado. Pode ser de duas formas: divisível (começa com todas as observações em um grupo e vai separando em agrupamentos) ou o aglomerativo (em que considera que cada observação pertence a um grupo e vai juntando até obter-se um grupo grande). Um dendograma permite reconstruir o histórico de fusões que resultou no agrupamento representado. 
+
+O agrupamento DBSCAN se baseia em densidades, independente da forma que possuem. É efetivo para identificar clusters de forma arbitrária e de diferentes tamanhos, bem como identificar e separar os ruídos das observações e detectar os clusters convenientemente chamados de naturais sem qualquer informação preliminar sobre o grupo. O método somente requer um parâmetro de entrada, mas dá suporte para determinar um valor apropriado para ele.
+
+Dentre os os exemplos apresentados pode-se dizer que para cada caso o método mais adequado é 
+
+    Deseja-se fazer o agrupamento em um número de grupos conhecido - K-means
+    Deseja-se fazer uma descrição taxonômica da relação entre os objetos - Agrupamento hierárquico.
+    Deseja-se identificar outliers ou observações ruidosas -  DBSCAN.
+
+

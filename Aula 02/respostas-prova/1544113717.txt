@@ -1,0 +1,35 @@
+
+
+Resumo de K-Médias
+
+O K-médias (k-means) é um método por particionamento. O método cria uma partição inicial e usa uma técnica de realocação iterativa que tenta melhorar o particionamento.
+
+Resumo de Agrupamento hierárquico
+
+Este tipo de método cria uma decomposição hierárquica de um conjunto de dados. Eles podem ser aglomerativos ou divisivos, juntando decomposições ou dividindo decomposições. A cada passo, divisões ou junções são feitas, e seus resultados podem ser representados em dendogramas.
+
+Resumo de DBScan
+
+Este tipo de método é baseado em densidade. Os grupos formados crescem de acordo com a densidade de dados em um "potencial" grupo. Para cada observação dentro de um dado grupo a vizinhança em um dado raio tem que conter um número mínimo de pontos
+
+ 
+
+Identificação de métodos mais adequados
+
+1) Deseja-se fazer o agrupamento em um número de grupos conhecido.
+
+Neste caso o mais indicado seria utilizar um algoritmo de K-médias, pois o primeiro passo é selecionar K centróides. Ao se ter o conhecimento do número de grupos desejado e ideal já deve-se ter uma estimativa boa destes centróides, assim a quantidade de iterações diminui, pois o algoritmo converge mais rapidamente. Ao considerar que o método K means tem a fragilidade de não priorizar a heterogeneidade dos clusters e enfatiza a homogeneidade intra cluster, ter definido o número ideal faz com que o método seja o melhor possível para este caso.
+
+ 
+
+2) Deseja-se fazer uma descrição taxonômica da relação entre objetos.
+
+Para extrair agrupamentos taxonomicos adequados é necessário atender o princípio da ancestralidade comum, portanto o método que melhor descreve a relação taxonômica é o hierárquico. Num dendograma gerado pelo método de agrupamento hierárquico pode ser observado como e qual é o nível de proximidade entre objetos.
+
+ 
+
+3) Deseja-se identificar outliers ou observações ruidosas.
+
+Neste caso que visa a identificação de pontos extremos fora do padrão de comportamento e ruído, o método mais adequado é naturalmente o DBScan. Este tem em sua concepção a identificação de ruído e outliers, além de clusters de formato e tamanho diferentes, sem nenhuma informação prévia sobre os dados, identificando vizinhanças aonde a maioria dos pontos está contida, assim s efor ruído ou outlier ele não será considerado ou considerado com menor peso.
+
+

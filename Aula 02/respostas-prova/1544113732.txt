@@ -1,0 +1,9 @@
+
+
+1. Dado que o número de grupo já é conhecido, e deseja-se usar um método para agrupamento, o melhor método seria o K - médias, pois você já consegue pré definir a quantidade de grupos a priori. algo que você não consegue com o agrupamento hierárquico e o DBSCAN.
+
+2. No contexto de um descrição taxonômica, o agrupamento hierárquico seria mais indicado, pois cada item de dados será considerado como um grupo individual, e os grupos são recursivamente fundidos até produzir um bom agrupamento final. sendo assim. a característica de cada grupo seria agrupada de forma hierárquica.
+
+3. No caso para identificar outliers , seria mais interessante utilizar o DBSCAN, pois é um método de clusterização não paramétrico baseado, que é significativamente efetivo para identificar clusters de formato arbitrário e de diferentes tamanhos, identificar e separar os ruídos dos dados e detectar clusters “naturais” e seus arranjos dentro do espaço de dados, sem qualquer informação preliminar sobre os grupos.
+
+

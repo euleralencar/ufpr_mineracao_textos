@@ -1,0 +1,18 @@
+
+
+K-médias:
+Tem como ideia minimizar a distância de entre um centroide e todos os outros pontos. Ao ser iniciado, deve ser escolhido um número de grupos, todos as amostras vão pertencer a um grupo. A localização do centroide pode ser aleatória mas sempre converge para uma solução.
+
+Algoritmos Hierárquicos:
+Criam uma hierarquia de características entre seus elementos. Existe dois tipos de algoritmos, os aglomerativos, onde inicia com elementos isolados e vai unindo eles em conjuntos, e os divisivos, que começam com um grande conjunto e vai separando ele em conjuntos menores. Não necessita escolher o número de grupos.
+
+DBSCAN:
+Um método baseado em densidade, muito bom para identificar grupo de formato arbitrário, assim bom para identificar ruídos. Usa a ideia de que para cada ponto de um grupo, a vizinhança contém no mínimo uma quantidade de pontos, assim que exceder esse número, o próximo sera um novo grupo e assim ele terá uma nova vizinhança não sendo alcançado pela vizinhança do grupo anterior. Muito fácil assim detectar ruídos, pois eles ficarão fora de todas as vizinhanças, e não vão conseguir criar um grupo por não possuir pontos suficientes em suas vizinhanças.
+
+1. Deseja-se fazer um agrupamento em um número de grupos conhecido. O melhor método indicado é K-médias, pois é o único que requer que seja escolhido um número de grupos, os métodos de algoritmos hierárquicos começam com um grande conjunto ou nenhum conjunto e variam o número de conjuntos, e o DBSCAN você não tem informação de quantos conjuntos ele vai gerar.
+
+2. Deseja-se fazer uma classificação taxonômica da relação entre seus objetos. O melhor método é algum método hierárquico, tanto divisivo como aglomerativo, pois se você vai separar por características, por exemplo se você utiliza um método divisivo, você so precisa criar as separações de grupos entre possui ou não tal característica.
+
+3. Deseja-se identificar outliers ou observações ruidosas. O indicado é o DBSCAN, pois como já foi explicado ele é muito bom em fazer isso. Alem disso o k-médias vai colocar sempre um outliers em um grupo, e pode ser que um algoritmo hierárquicos separe um outlier em um grupo isolado, mas pode ser que não, assim não tem certeza, logo o melhor indicado é o DBSCAN.
+
+

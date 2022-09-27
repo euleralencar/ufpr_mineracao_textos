@@ -1,0 +1,15 @@
+
+
+i - k-médias: aprendizado nao-supervisionado que atribui ou agrupamentos às observações. O método calcula centróides (médias de cada grupo) para reclassificar as observações para cada centróide mais próximo. O algoritmo converge ao se estabilizar. É possível pré-determinar quantos grupos se quer formar (k=2, k=3, etc). A desvantagem é que outliers farão parte de algum grupo. Um dos objetivos é que as observações variem o mínimo possível dentro de cada grupo (homogeneidade).
+
+ii - cluster hierárquico: aprendizado não-supervisionado que não determina a quantidade de agrupamentos a priori. Pelo método aglomerativo, cada observação pertence a um grupo e vai juntando até ser um grupo grande. Primeiramente cada ponto é um cluster. Os dois clusters mais próximos são identificados e agrupados. O método se repete até restar um cluster. (constrói-se um dendograma com folhas que se agrupam até chegar ao tronco). Vantagem: pode cortar o agrupamento em qualquer ponto e pode-se decidir pelo número de agrupamento depois da construção dos grupos..
+
+iii - DBSCAN: aprendizado não-supervisionado. Algoritmo de cluster baseado em densidade. Os clusters são regiões densas, separadas por regiões de menor densidade. Há dois parâmetros de tuning que devem ser adequadamente escolhidos: tamanho do raio e número mínimo de vizinhos dentro do raio. Vantagens: não requer número predefinido de clusters, podem ter qualquer forma e identifica outliers. Desvantagens: falha se não houver queda de densidade entre clusters, sensível aos parâmetros que definem a densidade de tuning (raio e mínimo de pontos devem ser adequadamente escolhidos) e a configuração adequada exige conhecimento e domínio.
+
+ 
+
+Por esses motivos classificam-se:
+
+1) K-médias. 2) Cluster hierárquico. 3) DBSCAN.
+
+
