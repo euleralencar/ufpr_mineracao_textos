@@ -5,18 +5,34 @@ library(text2vec)
 library(proxy)
 library(RWeka)
 library(Matrix)
+library(tidyverse)
 
 
 ## -----------------------------------------------------------------------------
 
 
-cname <- file.path("C:\\Users\\euler\\OneDrive\\Documents\\Projetos\\projetos_r\\2022\\ufpr_mineracao_textos\\Aula 02", "respostas-prova")
-#cname <- file.path()
+# cname <- file.path("C:\\Users\\euler\\OneDrive\\Documents\\Projetos\\projetos_r\\2022\\ufpr_mineracao_textos\\Aula 02", "respostas-prova")
 
+data <- read.csv(file = "Exercicio_agrupamento/eleicao.csv")
 
-cps <- VCorpus(DirSource(cname, 
-                          encoding = "UTF-8"), 
-                readerControl=list(reader=readPlain))
+data <- head(data, 3)
+
+# data %>% View()
+
+cname <- data %>% select(titulo, ementa)
+
+head(cname)
+
+# cname <- data %>% select(ementa) 
+# cname <- data %>% select(ementa) %>% as.vector()
+
+# cps <- VCorpus(DirSource(cname, 
+#                           encoding = "UTF-8"), 
+#                 readerControl=list(reader=readPlain))
+
+df_source <- DataframeSource(cname)
+
+cps <- VCorpus(VectorSource(cname))
 
 names(cps) <- sub(".*(.{3})\\.txt", "\\1", names(cps))
 inspect(cps[[3]])

@@ -38,6 +38,8 @@ tt$product <- tt$model %>%
     str_extract("^([[:alpha:]]+ +[[:alpha:]]+)") %>%
     str_to_upper()
 
+tt$product
+
 # Tipos únicos.
 # tt$product %>% unique() %>% dput()
 tt %>%
